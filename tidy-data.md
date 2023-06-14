@@ -17,7 +17,7 @@ Most commonly in "untidy" data:
 
 ## Fixing Untidy Data so that it is Tidy
 
-For this section I've generated some fake data that you can import into a Jupyter Notebook to play around with. 
+For this section I've generated some fake data that you can import into a Jupyter Notebook to play around with. You can either clone this repository or just copy+paste the raw relevant files, just make sure you copy all the important whitespace when you do that.
 To do this kind of work, you're going to become very familiar with the [Pandas documentation](https://pandas.pydata.org/pandas-docs/stable/index.html). Your best friends will be methods like: 
 - [merge](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html)
 - [melt](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html)
