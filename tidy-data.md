@@ -1,6 +1,7 @@
 # Tidy Data
 
-Note: For a more in depth discussion of Tidy Data, you should read the [original paper by Hadley Wickham](https://www.jstatsoft.org/article/view/v059i10/)!
+If your organization has a bunch of Excel or Google Spreadsheets strung together with fragile macros and you want to build the foundational skills necessary to modernize your stack, this is for you. 
+Note: This is a narrowly focused guide through what it's like  guided discussion with a specific focus on  For a more in depth discussion of Tidy Data, you should read the [original paper by Hadley Wickham](https://www.jstatsoft.org/article/view/v059i10/)!
 Here are the important takeaways from the paper:
 
 In data that is "tidy": 
