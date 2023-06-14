@@ -39,7 +39,9 @@ executing a cell with just a variable like `stomach_problems` at the end will re
 The **DataFrame** is your basic unit of work in the Python world when you're working with data.
 You may already notice some weirdness in the dataframe, we can edit the cell to try to clean it up already: 
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/72c9bf1f-c897-4a14-9789-b6e0cb57dc90)
-You can get rid of that `Unnamed` column by adding the `index_col=0` argument to the `read_csv` method. Then reevaluate the cell to store the df and display it, and it'll look nicer. But it won't look Tidy.
+You can get rid of that `Unnamed: 0` column by adding the `index_col=0` argument to the `read_csv` method. Then reevaluate the cells that (i) store the df and (ii) display it, and it'll re-render the dataframe to look nicer. 
+
+But it still won't be Tidy.
 
 The fact that the data loaded with an `Unnamed` column is actually a hint. What would a good name be? Each column should be for a single variable, maybe this variable would be called stomach_problem. Then, the values of Stomach Ulcers, Lactose Intolerance, etc actually make sense as variable-values pairs. But what about the other columns? Let's look at the next column to the right: `Age 18-25`. If the column name is `Age 18-25`, what does the first value of `0.23` mean? We have to look all the way to the filename of the data set to learn that 0.23 is the __proportion of the population__ with this disorder. It shouldn't be so hidden!
 
