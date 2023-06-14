@@ -23,6 +23,9 @@ and open the interactive [Jupyter Notebook](https://jupyter.org/try-jupyter/retr
 ```bash
 poetry run jupyter notebook
 ```
+After starting the server up, you should see something similar to the following in your browser:
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/25e2b8b0-96e8-4532-8b1e-5356cfccfc4d)
+
 
 target audience: software developer who hasn't done much with data
 
