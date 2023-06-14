@@ -82,5 +82,8 @@ We're going to want to melt again! But this time there's some data we want to ha
 df.melt(id_vars=["Age","Height"], ignore_index=False)`
 ```
 We use the melt method again, this time providing Age and Height as "id_vars", and we'll end up with this: 
-
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/1c1b5dc9-28d7-4652-9645-4184ff02e3a8)
+Just with doing a melt, we're already pretty far along! But we still need to: 
+1. Change the column names for `variable` and `value` to `quarter` and `weight_kg`
+1. Change values like `Weight-Q1` and `Weight-Q2` to `1` and and `2`
 
