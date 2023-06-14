@@ -84,6 +84,16 @@ df.melt(id_vars=["Age","Height"], ignore_index=False)`
 We use the melt method again, this time providing Age and Height as "id_vars", and we'll end up with this: 
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/1c1b5dc9-28d7-4652-9645-4184ff02e3a8)
 Just with doing a melt, we're already pretty far along! But we still need to: 
+1. Reset the index column and give that new column the name `name`
 1. Change the column names for `variable` and `value` to `quarter` and `weight_kg`
 1. Change values like `Weight-Q1` and `Weight-Q2` to `1` and and `2`
+
+(1) and (2) are simple enough, but to do (3) I'll introduce a new method: `replace`
+After a quick internet search, I find that I can chain the `replace` method with options to update a single column using a regular expression, and so my final query for tidying up this table looks like this:
+```python
+new_df = df.melt(id_vars=["Age","Height"], ignore_index=False).reset_index().rename(columns={"variable":"quarter", "value":"weight_kg", "index":"name"}).replace({"quarter": {"Weight-Q": ""}}, regex=True)
+```
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/93687a48-c790-4a9c-b9b7-ee32efc29e3a)
+
+
 
