@@ -86,30 +86,44 @@ tidy_stomach_problems_df = stomach_problems\
 
 You should now have a tidy dataframe! It will be a lot bigger than the table you started out with, but that's the price of being explicit. And as according to the Zen of Python, explicit is better than implicit. 
 
-![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/54c917b3-7623-4b21-b258-386222060545)
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/b387a62e-ab7a-4ed8-b330-a4962a4f30a6)
 
 
-### Column Headers are Values, not Variable Names
+### Column Headers Containing Values
 Let's take a look at another fake data file in this repository. This one contains 4 measurements of weights for a given patient over a years time, it's called `'patient-weights-over-1-year.tsv'`
 
 Once again, you can load it into your dataframe in pandas with
 ```python
-df = pd.read_csv('patient-weights-over-1-year.tsv', sep='\t', index_col=0)
+weights_df = pd.read_csv('patient-weights-over-1-year.tsv', sep='\t', index_col=0)
 ```
 and look at it by evaluating a cell with 
 ```python
-df
+weights_df
 ```
 as the last line of the cell. 
 
 
-Aside from this table containing information unrelated to the name of the file (age and height), what's wrong with this table? Well, once again: When a table is tidy, each column represents a single variable. In our table, we have the columns `Weight-Q1`, `Weight-Q2`, `Weight-Q3`, and `Weight-Q4`, which confuse the concept of a variable name and a variable's value. Instead, we should have two columns: weight and quarter. Columns indicating Q1, Q2, Q3, and Q4 by their names are storing Values where they should be just Names. 
+Aside from this table containing information unrelated to the name of the file (age and height), what's wrong with this table? Well, once again: __When a table is tidy, each column represents a single variable.__ In our table, we have the columns `Weight-Q1`, `Weight-Q2`, `Weight-Q3`, and `Weight-Q4`, which confuse the concept of a variable name and a variable's value. Instead, we should have two columns: weight and quarter. Columns indicating Q1, Q2, Q3, and Q4 by their names are storing Values where they should be just Names. 
 Our target dataframe will have the following column names:
-Name, Age, Height, Weight, Quarter. How do we make that happen?
+Name, Age, Height, Weight, Quarter. 
+Or to put it more visually:
+Our current table looks like: 
+```
+name, age, height, weight-q1, weight-q2, weight-q3, weight-q4
+some name, 21,170, 100, 104, 95, 101
+```
+and what we want instead is:
+```
+name, age, height, weight, quarter
+some name, 21, 170, 100, 1
+```
+
+(Wouldn't this make a nice test case?)
+So how do we make that happen?
 
 We're going to want to melt again! But this time there's some data we want to hang onto that's already pretty Tidy. 
 ```python
-df
+weight_df\
     .melt(id_vars=["Age","Height"], ignore_index=False)`
 ```
 We use the melt method again, this time providing Age and Height as "id_vars", and we'll end up with this: 
@@ -117,11 +131,11 @@ We use the melt method again, this time providing Age and Height as "id_vars", a
 Just with doing a melt, we're already pretty far along! But we still need to: 
 1. Reset the index column and give that new column the name `name`
 1. Change the column names for `variable` and `value` to `quarter` and `weight_kg`
-1. Change values like `Weight-Q1` and `Weight-Q2` to `1` and and `2`
+1. Change values like `Weight-Q1` and `Weight-Q2` to `1` and `2`
 
-(1) and (2) are simple enough, but to do (3) I'll introduce a new method: `replace`.
+(1) and (2) are simple enough, and to do (3) I'll mention about the method: `replace`.
 
-After a quick internet search, I find that I can chain the `replace` method with options to update a single column using a regular expression, and so my final query for tidying up this table looks like this:
+`replace` is nice because it can work on as many colums as you want, and column by column operations are what's desirable. This let's us think about our dataframe using Domain Modeling. We can actually start to think of **column names as domain object names**. But in order to get this column to be our well-behaved domain model, we need to change it from a string like "Weight-Q1" to an integer like `1`. A `quarter` is a decent domain object, right? Everyone will know it should be an integer between 1 and 4. We can use the replace method to change all the values in the `quarter` column which match the regular expression "Weight-Q" with the empty string "". ,     a single column using a regular expression, and so my final query for tidying up this table looks like this:
 ```python
 new_df = df\
     .melt(id_vars=["Age","Height"], ignore_index=False)\
