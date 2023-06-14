@@ -60,3 +60,27 @@ You should now have a tidy dataframe! It will be a lot bigger than the table you
 
 
 ### Column Headers are Values, not Variable Names
+Let's take a look at another fake data file in this repository. This one contains 4 measurements of weights for a given patient over a years time, it's called `'patient-weights-over-1-year.tsv'`
+
+Once again, you can load it into your dataframe in pandas with
+```python
+df = pd.read_csv('patient-weights-over-1-year.tsv', sep='\t', index_col=0)
+```
+and look at it by evaluating a cell with 
+```python
+df
+```
+as the last line of the cell. 
+
+
+Aside from this table containing information unrelated to the name of the file (age and height), what's wrong with this table? Well, once again: When a table is tidy, each column represents a single variable. In our table, we have the columns `Weight-Q1`, `Weight-Q2`, `Weight-Q3`, and `Weight-Q4`, which confuse the concept of a variable name and a variable's value. Instead, we should have two columns: weight and quarter. Columns indicating Q1, Q2, Q3, and Q4 by their names are storing Values where they should be just Names. 
+Our target dataframe will have the following column names:
+Name, Age, Height, Weight, Quarter. How do we make that happen?
+
+We're going to want to melt again! But this time there's some data we want to hang onto that's already pretty Tidy. 
+```python
+df.melt(id_vars=["Age","Height"], ignore_index=False)`
+```
+We use the melt method again, this time providing Age and Height as "id_vars", and we'll end up with this: 
+
+
