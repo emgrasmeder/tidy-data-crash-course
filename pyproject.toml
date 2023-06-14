@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "tidy-data-crash-course"
+version = "0.1.0"
+description = "An example data project"
+authors = ["Em Grasmeder <emily@gras.org>"]
+readme = "README.md"
+packages = [{include = "tidy_data_crash_course"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.0.2"
+jupyter = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
