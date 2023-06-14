@@ -54,5 +54,9 @@ melted_df = df.melt(ignore_index=False).reset_index().rename(columns={"index":"s
 
 Melt is exactly the method you want here. After reading the documentation for [melt](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html), I played around with the method and a few possible combinations of arguments but eventually I just tried `df.melt()` to see what would happen without any arguments, that got me pretty far by itself. Give it a shot!
 
+You should now have a tidy dataframe! It will be a lot bigger than the table you started out with, but that's the price of being explicit. And as according to the Zen of Python, explicit is better than implicit. 
+
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/6cf14554-c29e-458b-afd2-f73fe6d28653)
+
 
 ### Column Headers are Values, not Variable Names
