@@ -1,29 +1,28 @@
+# A Tidy Data Crash Course
 So you're a pretty decent software dev, but for some reason you have to start working with data for the first time. Most likely, spreadsheets worked fine for your team/org while you proved the business hypothesis, and now you need to build something more robust while under pressure to keep running business as usual. 
 
 Already know how to build an application inspired by the principles of the [12 Factor App](https://12factor.net/) and the [Ports and Adapters](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)) pattern, you just have to replace your existing workflow with that new app - you know it'll be a faster, more robust, more extensible, automated, tested data pipeline. But you need to get in the mindset and familiarize yourself with how to work in this context.
 
-### Getting Started
+## Getting Started
 
-You're going to need to make sure the app works on every environment the same, so we'll use [Poetry](https://python-poetry.org/docs/).
-Once you have it installed, you can initialize the Poetry environment. From here on out, every python related step we do will be prefixed with `poetry run` or from within a poetry shell. 
+If you're coming from a different tech stack, you've maybe never fought with Python environments and versions. My favorite way to deal with this is to use [Poetry](https://python-poetry.org/docs/). Once you have it installed, you can initialize the Poetry environment. From here on out, every python related step we do will be prefixed with `poetry run` or from within a poetry shell. 
 
-#### Initialize the Environment:
+### Initialize the Environment:
 ```bash
 poetry init
 ```
-making sure to follow the instructions. For now, you can decline any prompts to add dependencies.
+making sure to follow the instructions. If you skip the dependencies in this step, you'll do it after exiting the setup wizard.
 
-#### Adding Dependencies 
-Add the dependencies `pandas` and `jupyter`:
+### Adding Dependencies: pandas and jupyter 
 ```bash
 poetry add pandas jupyter
 ```
-#### Jupyter Notebooks
-Open the interactive [Jupyter Notebook](https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb) with the following command:
-
+### [Jupyter Notebook](https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb):
+A lot of data work really depends on inspecting your data visually. Sometimes something really important will surface because of a visualization, or simply by looking at the dataframes that hold the data. (I've given a couple talks about the importance of visualizing data, for example at [Lambda Conf](https://www.youtube.com/watch?v=TrOBMJOh7Vw)) So you'll either want to inspect the data in your IDE or in a Jupyter Notebook. We'll do the latter here:
 ```bash
 poetry run jupyter notebook
 ```
+
 After starting the server up, you should see something similar to the following in your browser:
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/25e2b8b0-96e8-4532-8b1e-5356cfccfc4d)
 and from there you can click on `New` > `Python 3 (ipykernal)`, this will open a new tab with an IPython interactive REPL.
