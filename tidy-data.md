@@ -22,6 +22,7 @@ To do this kind of work, you're going to become very familiar with the [Pandas d
 - [melt](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html)
 - [explode](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.explode.html)
 - [filter](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.filter.html)
+- [groupby](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
 
 Let's jump over to our Notebook to start playing. 
 Importing data is pretty easy, you'll just need to run the following the import and view your first pandas DataFrame. Let's load the fake data table representing the proportion of the general population who has a given stomach problem, divided up by age:
@@ -104,5 +105,13 @@ new_df = df
 ```
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/93687a48-c790-4a9c-b9b7-ee32efc29e3a)
 
+One of the nice things about the tidy format is that I can utilize vectorized operations in the Pandas library and [speed up execution time dramatically](https://plainenglish.io/blog/pandas-how-you-can-speed-up-50x-using-vectorized-operations), when compared to using iteration.
+Let's say I want to find people who have a lot of variance in their weight throughout the year. In its original format, I'd probably need to write code that looks like:
+```python
+for row in df:
+    var = compute_variance(row, relevant_column_names=["Weight-Q1", "Weight-Q2", "Weight-Q3", "Weight-Q4"])
+    ...
+```
+and with our tidy data I can instead:
 
 
