@@ -27,6 +27,16 @@ poetry run jupyter notebook
 ```
 After starting the server up, you should see something similar to the following in your browser:
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/25e2b8b0-96e8-4532-8b1e-5356cfccfc4d)
+and from there you can click on `New` > `Python 3 (ipykernal)`, this will open a new tab with an IPython interactive REPL.
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/1446d249-3f00-4305-be8c-fa740bf24dd7)
+
+If you're new to Notebooks like this, here's my advice: Think of your Jupyter Notebook as a scratch pad. Pretend the file is saved to your `/tmp` folder and will get deleted in a few days. **Any code worth keeping that you've written in a Notebook you should cut and paste into your IDE, give it a function name, write some tests for it, and commit it to version control.** Next time, __import__ that lovely function from your library into your Notebook if you need it in the future.
+
+Code in Notebooks depends on hidden state, it's rarely tested, it's not going to be well documented, in short **Notebook Code Rots Quickly**. 
+
+But we're going to play with 🔥 anyway. For now, just watch out that execution order is important in Notebooks like this.
+https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/e27a6cfb-f5c1-4fdd-8f0d-08358f2058f0
+
 
 
 target audience: software developer who hasn't done much with data
