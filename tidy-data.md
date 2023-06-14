@@ -1,8 +1,8 @@
 # Tidy Data
 
 If your organization has a bunch of Excel or Google Spreadsheets strung together with fragile macros and you want to build the foundational skills necessary to modernize your stack, this is for you. 
-Note: This is a narrowly focused guide through what it's like  guided discussion with a specific focus on  For a more in depth discussion of Tidy Data, you should read the [original paper by Hadley Wickham](https://www.jstatsoft.org/article/view/v059i10/)!
-Here are the important takeaways from the paper:
+
+Your data is most likely Messy. As Hadley Wickham says in his [pivotal paper](https://www.jstatsoft.org/article/view/v059i10/), "Tidy datasets are all alike but every messy dataset is messy in its own way." I don't know right now what your messy data will be like, and most likely all of your spreadsheets will be messy in a unique and challenging way. You have to learn to Tidy your data before you can do anything with it. Here's the important takeaways about Tidy Data, but you'll have to keep looking these things up and working to understand them time and again:
 
 In data that is "tidy": 
 - Each row reflects a single observation.
