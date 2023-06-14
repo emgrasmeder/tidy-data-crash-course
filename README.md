@@ -38,7 +38,8 @@ But we're going to play with 🔥 anyway. For now, just notice that execution or
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/c71c186b-665f-40fd-a5fb-a0c4a83570bb)
 
 Now you're set up with Jupyter Notebooks and Poetry, let's dive into the Data Stuff. Click below to navigate to the Tidy Data page:
-| Tidy Data >
+
+| [Tidy Data >](https://github.com/emgrasmeder/tidy-data-crash-course/blob/main/tidy-data.md)
 
 
 b. pandas
