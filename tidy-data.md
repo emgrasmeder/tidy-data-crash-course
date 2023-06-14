@@ -135,7 +135,7 @@ Just with doing a melt, we're already pretty far along! But we still need to:
 
 (1) and (2) are simple enough, and to do (3) I'll mention about the method: `replace`.
 
-`replace` is nice because it can work on as many colums as you want, and column by column operations are what's desirable. This let's us think about our dataframe using Domain Modeling. We can actually start to think of **column names as domain object names**. But in order to get this column to be our well-behaved domain model, we need to change it from a string like "Weight-Q1" to an integer like `1`. A `quarter` is a decent domain object, right? Everyone will know it should be an integer between 1 and 4. We can use the replace method to change all the values in the `quarter` column which match the regular expression "Weight-Q" with the empty string "". ,     a single column using a regular expression, and so my final query for tidying up this table looks like this:
+`replace` is nice because it can work on as many colums as you want, and column by column operations are what's desirable. This let's us think about our dataframe using Domain Modeling. We can actually start to think of **column names as domain object names**. But in order to get this column to be our well-behaved domain model, we need to change it from a string like "Weight-Q1" to an integer like `1`. A `quarter` is a decent domain object, right? Everyone will know it should be an integer between 1 and 4. We can use the replace method to change all the values in the `quarter` column which match the regular expression "Weight-Q" with the empty string "". So my final query for tidying up this table looks like this:
 ```python
 new_df = df\
     .melt(id_vars=["Age","Height"], ignore_index=False)\
