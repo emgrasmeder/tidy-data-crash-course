@@ -35,7 +35,7 @@ If you're new to Notebooks like this, here's my advice: Think of your Jupyter No
 Code in Notebooks depends on hidden state, it's rarely tested, it's not going to be well documented, in short **Notebook Code Rots Quickly**. 
 
 But we're going to play with 🔥 anyway. For now, just notice that execution order is important in Notebooks:
-https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/824e246b-9b1b-4d70-9543-08a44e9cb920
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/c71c186b-665f-40fd-a5fb-a0c4a83570bb)
 
 Now you're set up with Jupyter Notebooks and Poetry, let's dive into the Data Stuff. Click below to navigate to the Tidy Data page:
 | Tidy Data >
