@@ -20,7 +20,7 @@ Code in Notebooks depends on hidden state, it's rarely tested, it's not going to
 
 Jupyter is quite powerful and can be used for collaboration, I've even helped teams deploy Notebooks as production code, but I really think they belong in a narrow context in the development pipeline. As such, I'm keeping the code snippets here in the Markdown files instead of making the entire blog post a Notebook to share and letting you simply execute the code to see that it works. Take some time exploring, that's what this tool exists for. 
 
-But we're going to play with 🔥 anyway. For now, just notice that execution order is important in Notebooks:
+So, we're going to play with 🔥 but it'll be OK. For now, just notice that execution order is important in Notebooks:
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/c71c186b-665f-40fd-a5fb-a0c4a83570bb)
 
 Now you're set up with Jupyter Notebooks and Poetry, let's dive into the Data Stuff. Click below to navigate to the Tidy Data page:
