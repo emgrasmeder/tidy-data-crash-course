@@ -36,6 +36,7 @@ stomach_problems
 ```
 executing a cell with just a variable like `stomach_problems` at the end will result in the dataframe being displayed inline on the notebook.
 
+### Exploring and Manipulating 
 The **DataFrame** is your basic unit of work in the Python world when you're working with data.
 You may already notice some weirdness in the dataframe, we can edit the cell to try to clean it up already: 
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/72c9bf1f-c897-4a14-9789-b6e0cb57dc90)
@@ -79,12 +80,13 @@ Then, with a little more playing wround, I've come up with this:
 tidy_stomach_problems_df = stomach_problems\
     .melt(ignore_index=False)\
     .reset_index()\
-    .rename(columns={"index":"stomach_ailment", "variable":"age_range", "value": "population_proportion"})
+    .rename(columns={"index":"stomach_ailment", "variable":"age_range", "value": "population_proportion"})\
+    .replace({"age_range": {"Age ": ""}}, regex=True)
 ```
 
 You should now have a tidy dataframe! It will be a lot bigger than the table you started out with, but that's the price of being explicit. And as according to the Zen of Python, explicit is better than implicit. 
 
-![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/6cf14554-c29e-458b-afd2-f73fe6d28653)
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/54c917b3-7623-4b21-b258-386222060545)
 
 
 ### Column Headers are Values, not Variable Names
