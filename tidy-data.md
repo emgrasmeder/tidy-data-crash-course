@@ -43,25 +43,44 @@ You can get rid of that `Unnamed: 0` column by adding the `index_col=0` argument
 
 But it still won't be Tidy.
 
-The fact that the data loaded with an `Unnamed` column is actually a hint. What would a good name be? Each column should be for a single variable, maybe this variable would be called stomach_problem. Then, the values of Stomach Ulcers, Lactose Intolerance, etc actually make sense as variable-values pairs. But what about the other columns? Let's look at the next column to the right: `Age 18-25`. If the column name is `Age 18-25`, what does the first value of `0.23` mean? We have to look all the way to the filename of the data set to learn that 0.23 is the __proportion of the population__ with this disorder. It shouldn't be so hidden!
+The fact that the data loaded with an `Unnamed` column is actually a hint. What would a good name be? Each column should be for a single variable, maybe this variable would be called `stomach_problem`. Then, the values of Stomach Ulcers, Lactose Intolerance, etc actually make sense as variable-values pairs. But what about the other columns? Let's look at the next column to the right: `Age 18-25`. If the column name is `Age 18-25`, what does the first value of `0.23` mean? We have to look all the way to the filename of the data set to learn that 0.23 is the __proportion of the population__ with this disorder. In fact, it shouldn't be so hidden!
 
-The fact that you can't discern what a value in the table means just by looking at the column header is another dead giveaway that your data isn't tidy. What we want is to have a column each for:
+The fact that you can't discern what a value in the table means just by looking at the column header is another dead giveaway that your data isn't tidy. Take a step back and look at the table. What information, in general, is stored in the table. Try to think about __a single row containing a single observation__. What would the "observation" be?
+
+Answer: We have a column each for:
 - Stomach Problem
 - Age Range
 - Proportion of Population
 
-I've found it helpful to first map out an example of my input data and what my output data would look like. (These can later be turned into test cases!) At the very least, knowing what the desired dataframe's column names will be will help a lot to wrap your mind around carving out the next steps.
+The "observation", if you read across the tidied up row, should read like: "a given stomach problem at a given age affects a certain proportion of the population". 
 
-With a little playing wround, I've come up with this: 
+I've found it helpful to first map out an example of my input data (the picture above) and what my output data would look like. (These can later be turned into test cases!) At the very least, knowing what the desired dataframe's column names will be will help a lot to wrap your mind around carving out the next steps.
+
+So whereas the first data point in our old, untidy dataframe reads: 
+```
+, age 18-25
+stomach ulcers, 0.23 
+```
+instead, we want something like:
+```
+stomach_problem, age_range, proportion_of_population
+"stomach ulcer", 18-25, 0.23
+```
+see how that fits together?
+
+You probably won't know this unless I tell you about it, but one of the magic words for tidying your data is ✨ **melt** ✨ .
+
+Melt is exactly the method you want here. After reading the documentation for [melt](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html), I played around with the method and a few possible combinations of arguments, but eventually I just tried `df.melt()` to see what would happen without any arguments, that got me pretty far by itself. Give it a shot!
+
+
+Then, with a little more playing wround, I've come up with this: 
 
 ```python 
-melted_df = df
-    .melt(ignore_index=False)
-    .reset_index()
+tidy_stomach_problems_df = stomach_problems\
+    .melt(ignore_index=False)\
+    .reset_index()\
     .rename(columns={"index":"stomach_ailment", "variable":"age_range", "value": "population_proportion"})
 ```
-
-Melt is exactly the method you want here. After reading the documentation for [melt](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html), I played around with the method and a few possible combinations of arguments but eventually I just tried `df.melt()` to see what would happen without any arguments, that got me pretty far by itself. Give it a shot!
 
 You should now have a tidy dataframe! It will be a lot bigger than the table you started out with, but that's the price of being explicit. And as according to the Zen of Python, explicit is better than implicit. 
 
