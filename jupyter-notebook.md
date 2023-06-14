@@ -1,5 +1,5 @@
-# [Jupyter Notebooks](https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb):
-A lot of data work really depends on inspecting your data visually. Sometimes something really important will surface because of a visualization, or simply by looking at the dataframes that hold the data. (I've given a couple talks about the importance of visualizing data, for example at [Lambda Conf](https://www.youtube.com/watch?v=TrOBMJOh7Vw)) So you'll either want to inspect the data in your IDE or in a Jupyter Notebook. We'll do the latter here:
+# Jupyter Notebooks
+A lot of data work really depends on inspecting your data visually. Sometimes something really important will surface because of a visualization, or simply by looking at the dataframes that hold the data. (I've given a couple talks about the importance of visualizing data, for example at [Lambda Conf](https://www.youtube.com/watch?v=TrOBMJOh7Vw)) So you'll either want to inspect the data in your IDE or in a [Jupyter Notebook](https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb):. We'll do the latter here:
 
 ```bash
 poetry run jupyter notebook
