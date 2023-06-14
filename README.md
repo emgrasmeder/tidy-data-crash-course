@@ -34,20 +34,15 @@ If you're new to Notebooks like this, here's my advice: Think of your Jupyter No
 
 Code in Notebooks depends on hidden state, it's rarely tested, it's not going to be well documented, in short **Notebook Code Rots Quickly**. 
 
-But we're going to play with 🔥 anyway. For now, just watch out that execution order is important in Notebooks like this.
-https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/e27a6cfb-f5c1-4fdd-8f0d-08358f2058f0
+But we're going to play with 🔥 anyway. For now, just notice that execution order is important in Notebooks:
+https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/824e246b-9b1b-4d70-9543-08a44e9cb920
+
+Now you're set up with Jupyter Notebooks and Poetry, let's dive into the Data Stuff. Click below to navigate to the Tidy Data page:
+| Tidy Data >
 
 
-
-target audience: software developer who hasn't done much with data
-
-1. technologies
-a. poetry
 b. pandas
   - data frames
-c. jupyter
-  - executing frames
-  - pitfalls
 2. methodologies
 - tidy data
   - melting, joining, for loops
