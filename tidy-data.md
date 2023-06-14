@@ -98,7 +98,7 @@ weights_df = pd.read_csv('patient-weights-over-1-year.tsv', sep='\t', index_col=
 ```
 and look at it by evaluating a cell with 
 ```python
-weights_df
+weight_df
 ```
 as the last line of the cell. 
 
@@ -137,7 +137,7 @@ Just with doing a melt, we're already pretty far along! But we still need to:
 
 `replace` is nice because it can work on as many colums as you want, and column by column operations are what's desirable. This let's us think about our dataframe using Domain Modeling. We can actually start to think of **column names as domain object names**. But in order to get this column to be our well-behaved domain model, we need to change it from a string like "Weight-Q1" to an integer like `1`. A `quarter` is a decent domain object, right? Everyone will know it should be an integer between 1 and 4. We can use the replace method to change all the values in the `quarter` column which match the regular expression "Weight-Q" with the empty string "". So my final query for tidying up this table looks like this:
 ```python
-new_df = df\
+weight_df = weight_df\
     .melt(id_vars=["Age","Height"], ignore_index=False)\
     .reset_index()\
     .rename(columns={"variable":"quarter", "value":"weight_kg", "index":"name"})\
@@ -145,11 +145,12 @@ new_df = df\
 ```
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/93687a48-c790-4a9c-b9b7-ee32efc29e3a)
 
-From here, I can finally have a single cohesive conversation between my datasets with a little mapping and joining. 
-For instance, we have a table that contains people and their ages, and another table with ages and the likelihood of a stomach issues within the general population. I can create a new column for, `age_bracket` in the table for the people, and we'll have a column in common between the two. 
-The somewhat arbitrarily created age brackets were: 18-25, 26-32, 33-40, 40-52, 53-65, 66-80, and 80-100. I need to write a function which will add a column to my patient's info dataframe that corresponds to their age bracket.
+From here, I'm close to being able to bridge the gap between my tables. All that's left is a little mapping and merging. 
 
-The apply function is generally one to avoid, but with this size data set it's really not worth worrying about for now. Assigning people their age brackets can be accomplished with something like this:
+For instance, we have a table that contains people and their ages, and another table with ages and the likelihood of a stomach issues within the general population. I can create a new column for, `age_bracket` in the table for the people, and we'll have a column in common between the two. 
+The somewhat arbitrarily created age brackets were: 18-25, 26-32, 33-40, 40-52, 53-65, 66-80, and 80-100. I need to write a function which will help add a column to my patient's info dataframe that corresponds to their age bracket.
+
+For reasons of speed, the apply function is generally one to avoid, but with this size data set it's really not worth worrying about for now. Assigning people their age brackets can be accomplished with something like this:
 ```python
 def determine_age_range(age):
     age = int(age)
@@ -168,12 +169,14 @@ def determine_age_range(age):
     elif 80 <= age <= 100:
         return "80-100"
     
-weights["age_range"] = weights.filter(items=["Age"], axis=1).apply(lambda x: determine_age_range(x), axis=1)
+weight_df = weight_df.assign(age_range=weights_df.filter(items=["Age"], axis=1).apply(lambda x: determine_age_range(x), axis=1))
+weight_df
 ```
 
-and this enables us to use the merge method to merge our datasets and start to do analysis:
+so now we have a tidy `weights_df` which is also enriched with an `age_range` column. This overlap enables us to merge (think SQL `Join`) with any tidy data containing the same column.
+I.e.
 ```python
-pd.DataFrame.merge(weights, common_stomach_problems, on=["age_range"], how="outer").dropna()
+pd.DataFrame.merge(weight_df, tidy_stomach_problems_df, on=["age_range"], how="outer").dropna()
 ```
 
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/ee96d662-aa4c-4556-88e9-ec4553924365)
