@@ -25,4 +25,4 @@ But we're going to play with 🔥 anyway. For now, just notice that execution or
 
 Now you're set up with Jupyter Notebooks and Poetry, let's dive into the Data Stuff. Click below to navigate to the Tidy Data page:
 
-| [Tidy Data >](https://github.com/emgrasmeder/tidy-data-crash-course/blob/main/tidy-data.md)
+[< Introduction](https://github.com/emgrasmeder/tidy-data-crash-course/blob/main/README.md) | [Tidy Data >](https://github.com/emgrasmeder/tidy-data-crash-course/blob/main/tidy-data.md)
