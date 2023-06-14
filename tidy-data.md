@@ -181,15 +181,16 @@ pd.DataFrame.merge(weight_df, tidy_stomach_problems_df, on=["age_range"], how="o
 
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/ee96d662-aa4c-4556-88e9-ec4553924365)
 
-From here, we could see at a glance that Gil Atkins has a 10% chance of having Stomach Ulcers given their [fake] prevalence in the general population. By tidying our data like this, it becomes almost mechanical to then incorporate data that would give us better estimates of likelihoods for various diseases/disorders, for example if we also had statistics about those issues as they intersect race, socioeconomic status, diet, and so on. Although the size of the data increases, the interoperability is hugely beneficial. And anyway, the Data Science team will problly want their data de-normalized for their machine learning algorithms.
 
-One of the nice things about the tidy format is that I can utilize vectorized operations in the Pandas library and [speed up execution time dramatically](https://plainenglish.io/blog/pandas-how-you-can-speed-up-50x-using-vectorized-operations), when compared to using iteration.
-Let's say I want to find people who have a lot of variance in their weight throughout the year. In its original format, I'd probably need to write code that looks like:
-```python
-for row in df:
-    var = compute_variance(row, relevant_column_names=["Weight-Q1", "Weight-Q2", "Weight-Q3", "Weight-Q4"])
-    ...
-```
-and with our tidy data I can instead:
+From here, we could see at a glance that Gil Atkins has a 10% chance of having Stomach Ulcers given their [fake] prevalence in the general population. That's how an "Observation" works in Tidy data. 
 
+### Conclusion
 
+By tidying our data like this, it becomes almost mechanical to incorporate new data.
+
+If we get more data about our patients, for example race, socioeconomic status, diet, and so on, as long as that data contains a `name` column with names that match the data above, we can add it in with our `merge` function. 
+If we got, say, 2 more pieces of data that told us about how (i) altitude above sea level affects the likelihood for someone to contract Crohn's Disease, and we had (ii) each person's Zip Code, we can get `merge` this information into our data set and easily start to do more in depth analysis. But only if the data coming in is Tidy. 
+
+Although Tidying increases the size of the data, the interoperability, ability to reason, and even execution speed (because of vectorized/columnar data operations*) will greatly outweight the disk space that you're using up. And besides that, the Data Science team will very likely want their data de-normalized for their machine learning algorithms.
+
+*One of the nice things about the tidy format is that I can utilize vectorized operations in the Pandas library and [speed up execution time dramatically](https://plainenglish.io/blog/pandas-how-you-can-speed-up-50x-using-vectorized-operations), when compared to using iteration.
