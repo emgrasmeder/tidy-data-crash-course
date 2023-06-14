@@ -97,13 +97,48 @@ Just with doing a melt, we're already pretty far along! But we still need to:
 
 After a quick internet search, I find that I can chain the `replace` method with options to update a single column using a regular expression, and so my final query for tidying up this table looks like this:
 ```python
-new_df = df
-    .melt(id_vars=["Age","Height"], ignore_index=False)
-    .reset_index()
-    .rename(columns={"variable":"quarter", "value":"weight_kg", "index":"name"})
+new_df = df\
+    .melt(id_vars=["Age","Height"], ignore_index=False)\
+    .reset_index()\
+    .rename(columns={"variable":"quarter", "value":"weight_kg", "index":"name"})\
     .replace({"quarter": {"Weight-Q": ""}}, regex=True)
 ```
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/93687a48-c790-4a9c-b9b7-ee32efc29e3a)
+
+From here, I can finally have a single cohesive conversation between my datasets with a little mapping and joining. 
+For instance, we have a table that contains people and their ages, and another table with ages and the likelihood of a stomach issues within the general population. I can create a new column for, `age_bracket` in the table for the people, and we'll have a column in common between the two. 
+The somewhat arbitrarily created age brackets were: 18-25, 26-32, 33-40, 40-52, 53-65, 66-80, and 80-100. I need to write a function which will add a column to my patient's info dataframe that corresponds to their age bracket.
+
+The apply function is generally one to avoid, but with this size data set it's really not worth worrying about for now. Assigning people their age brackets can be accomplished with something like this:
+```python
+def determine_age_range(age):
+    age = int(age)
+    if 18 <= age <= 25:
+        return "18-25"
+    elif 26 <= age <= 32:
+        return "26-32"
+    elif 33 <= age <= 40:
+        return "33-40"
+    elif 41 <= age <= 52:
+        return "41-52"
+    elif 53 <= age <= 65:
+        return "53-65"
+    elif 66 <= age <= 80:
+        return "66-80"
+    elif 80 <= age <= 100:
+        return "80-100"
+    
+weights["age_range"] = weights.filter(items=["Age"], axis=1).apply(lambda x: determine_age_range(x), axis=1)
+```
+
+and this enables us to use the merge method to merge our datasets and start to do analysis:
+```python
+pd.DataFrame.merge(weights, common_stomach_problems, on=["age_range"], how="outer").dropna()
+```
+
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/ee96d662-aa4c-4556-88e9-ec4553924365)
+
+From here, we could see at a glance that Gil Atkins has a 10% chance of having Stomach Ulcers given their [fake] prevalence in the general population. By tidying our data like this, it becomes almost mechanical to then incorporate data that would give us better estimates of likelihoods for various diseases/disorders, for example if we also had statistics about those issues as they intersect race, socioeconomic status, diet, and so on. Although the size of the data increases, the interoperability is hugely beneficial. And anyway, the Data Science team will problly want their data de-normalized for their machine learning algorithms.
 
 One of the nice things about the tidy format is that I can utilize vectorized operations in the Pandas library and [speed up execution time dramatically](https://plainenglish.io/blog/pandas-how-you-can-speed-up-50x-using-vectorized-operations), when compared to using iteration.
 Let's say I want to find people who have a lot of variance in their weight throughout the year. In its original format, I'd probably need to write code that looks like:
