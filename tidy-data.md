@@ -18,21 +18,23 @@ Most commonly in "untidy" data:
 ## Fixing Untidy Data so that it is Tidy
 
 For this section I've generated some fake data that you can import into a Jupyter Notebook to play around with. You can either clone this repository or just copy+paste the raw relevant files, just make sure you copy all the important whitespace when you do that.
-To do this kind of work, you're going to become very familiar with the [Pandas documentation](https://pandas.pydata.org/pandas-docs/stable/index.html). Your best friends will be methods like: 
+In general, to do this kind of work, you're going to become very familiar with the [Pandas documentation](https://pandas.pydata.org/pandas-docs/stable/index.html). Your best friends will be methods like: 
 - [merge](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.merge.html)
 - [melt](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html)
 - [explode](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.explode.html)
 - [filter](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.filter.html)
-- [groupby](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html
+- [groupby](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html)
 
 Let's jump over to our Notebook to start playing. 
+### Importing Data
 Importing data is pretty easy, you'll just need to run the following the import and view your first pandas DataFrame. Let's load the fake data table representing the proportion of the general population who has a given stomach problem, divided up by age:
 
 ```python
 import pandas as pd
-df = pd.read_csv('common-stomach-problems-population-proportion.tsv', sep='\t')
-df
+stomach_problems = pd.read_csv('common-stomach-problems-population-proportion.tsv', sep='\t')
+stomach_problems
 ```
+executing a cell with just a variable like `stomach_problems` at the end will result in the dataframe being displayed inline on the notebook.
 
 The **DataFrame** is your basic unit of work in the Python world when you're working with data.
 You may already notice some weirdness in the dataframe, we can edit the cell to try to clean it up already: 
