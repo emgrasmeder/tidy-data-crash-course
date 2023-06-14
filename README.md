@@ -3,22 +3,24 @@ Imagine this: You're a pretty decent software dev, but for some reason you have 
 
 You're going to want to build an application inspired by the principles of [12 Factor App](https://12factor.net/) and the [Ports and Adapters](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)) pattern. The goal is to shut down your existing workflow piece by piece, replacing it with your faster, more robust, automated, tested data pipeline. 
 
-Let's get started.
+### Getting Started
 
 You're going to need to make sure the app works on every environment the same, so we'll use [Poetry](https://python-poetry.org/docs/).
 Once you have it installed, you can initialize the Poetry environment. From here on out, every python related step we do will be prefixed with `poetry run` or from within a poetry shell. 
 
-Initialize the environment like:
+#### Initialize the Environment:
 ```bash
 poetry init
 ```
 making sure to follow the instructions. For now, you can decline any prompts to add dependencies.
 
-Now we can add our first dependencies and learn about them interactively. Add the dependencies `pandas` and `jupyter`:
+#### Adding Dependencies 
+Add the dependencies `pandas` and `jupyter`:
 ```bash
 poetry add pandas jupyter
 ```
-and open the interactive [Jupyter Notebook](https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb) with the following command:
+#### Jupyter Notebooks
+Open the interactive [Jupyter Notebook](https://jupyter.org/try-jupyter/retro/notebooks/?path=notebooks/Intro.ipynb) with the following command:
 
 ```bash
 poetry run jupyter notebook
