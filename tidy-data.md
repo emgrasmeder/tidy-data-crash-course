@@ -71,9 +71,11 @@ stomach_problem, age_range, proportion_of_population
 ```
 see how that fits together?
 
-You probably won't know this unless I tell you about it, but one of the magic words for tidying your data is ✨ **melt** ✨ .
+#### Tidying the Stomach Problems Table
 
-Melt is exactly the method you want here. After reading the documentation for [melt](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html), I played around with the method and a few possible combinations of arguments, but eventually I just tried `df.melt()` to see what would happen without any arguments, that got me pretty far by itself. Give it a shot!
+The magic word for tidying this type of messy data is ✨ **melt** ✨ .
+
+Melt is exactly the method you want here. It's usually a good first place to look when you have some messy data. After reading the documentation for [melt](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.melt.html), I played around with the method and a few possible combinations of arguments, but eventually I just tried `df.melt()` to see what would happen without any arguments, that got me pretty far by itself. Give it a shot!
 
 
 Then, with a little more playing wround, I've come up with this: 
