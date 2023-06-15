@@ -1,5 +1,5 @@
 # A Tidy Data Crash Course
-So you're a pretty decent software dev, and you've been tasked with phasing out your organization's Spreadsheet based workflow. Most likely, those spreadsheets worked fine while getting things off the ground, and now you need to build something more robust while under pressure to keep running business as usual. 
+So you're a pretty decent software dev, and you've been tasked with phasing out your organization's Spreadsheet based workflow. It could be financial data, it could be logistics, it could be patient health data. It's really common and totally OK to start out using spreadsheets! But most likely, those spreadsheets worked fine while getting things off the ground, and now you need to build something more robust while under pressure to keep running business as usual. 
 
 You just have to replace your existing workflow with that new app - you know it'll be a faster, more robust, more extensible, automated, tested data pipeline. But you need to get in the mindset and familiarize yourself with how to work in this context. This little breeze through will introduce you to the tools and help you build a little but of muscle memory for how you'll ditch your spreadsheets and get started with a robust Python solution.
 
