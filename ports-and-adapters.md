@@ -41,7 +41,9 @@ and
 `pd.to_datetime(tidy_df)`
 
 ### Core Code
-Core code is code that can make a lot of assumptions about the meaning of the code. Perhaps you can assume that any column name with the `_time` suffix will be a unix timestamp, or with a `_g` suffix will be a float with 2 decimal places, or that columns dealing with money will be integers. This isn't an assumption you can make when you're dealing with external APIs, producers upstream, other teams, etc. But your adapters have insulated you from the chaos of the outside world, and now you can think about your data as you do about your business. Your columns are predictable, the data is tidy, and everything is interoperable with everything else. The core is the most important part of your business. You can write tests and refactor rapidly because everything is calm here. Core code often looks like:
+Core code is code that can make a lot of assumptions about the meaning of the code. Perhaps you can assume that any column name with the `_time` suffix will be a unix timestamp, or with a `_grams` suffix will be a float with 2 decimal places, or that columns dealing with money will be integers. This isn't an assumption you can make when you're dealing with external APIs, producers upstream, other teams, etc. 
+
+But your adapters have insulated you from the chaos of the outside world, and now you can think about your data as you do about your business. Your columns are predictable, the data is tidy, and everything is interoperable with everything else. The core is the most important part of your business. You can write tests and refactor rapidly because everything is calm here. Core code often looks like:
 
 `my_new_tidy_df = tidy_df.merge(some_other_tidy_df, how="outer", on=["column_in_both_dataframes"])`
 
