@@ -140,7 +140,8 @@ weight_df\
     .melt(id_vars=["Age","Height"], ignore_index=False)`
 ```
 We use the melt method again, this time providing Age and Height as "id_vars", and we'll end up with this: 
-![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/1e5ded7f-ee86-4ec1-821b-b42e3d1343db)
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/81644c25-bb06-4a5a-a3bf-146cac46fc30)
+
 
 Just with doing a melt, we're already pretty far along! But we still need to: 
 1. Reset the index column and give that new column the name `name`
@@ -157,7 +158,8 @@ weight_df = weight_df\
     .rename(columns={"variable":"quarter", "value":"weight_kg", "index":"name"})\
     .replace({"quarter": {"Weight-Q": ""}}, regex=True)
 ```
-![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/93687a48-c790-4a9c-b9b7-ee32efc29e3a)
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/f555484a-a71f-4765-9cc4-b2d18cb590f8)
+
 
 From here, I'm close to being able to bridge the gap between my tables. All that's left is a little mapping and merging. 
 
