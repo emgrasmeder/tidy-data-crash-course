@@ -90,7 +90,8 @@ tidy_stomach_problems_df = stomach_problems\
 
 You should now have a tidy dataframe! It will be a lot bigger than the table you started out with, but that's the price of being explicit. And as according to the Zen of Python, explicit is better than implicit. 
 
-![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/b387a62e-ab7a-4ed8-b330-a4962a4f30a6)
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/f167de0e-e87d-4a0c-a910-fcc2c28b4ba2)
+
 
 
 ### Column Headers Containing Values
