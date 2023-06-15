@@ -192,7 +192,7 @@ which looks like:
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/1474491b-31e0-4cd1-bbb8-903eb58fa495)
 
 
-so now we have a tidy `weights_df` which is also enriched with an `age_range` column. This overlap enables us to merge (think SQL `Join`) with any tidy data containing the same column.
+so now we have a `tidy_weights_df` which is also enriched with an `age_range` column. This overlap enables us to merge (think SQL `Join`) with any tidy data containing the same column.
 I.e.
 ```python
 pd.DataFrame.merge(weight_df, tidy_stomach_problems_df, on=["age_range"], how="outer").dropna()
@@ -205,9 +205,9 @@ From here, we could see at a glance that Gil Atkins has a 10% chance of having S
 
 ### Conclusion
 
-By tidying our data like this, it becomes almost mechanical to incorporate new data.
+By tidying our [somewhat awkward, contrived] data like this, it becomes almost mechanical to incorporate new data.
 
-If we get more data about our patients, for example race, socioeconomic status, diet, and so on, as long as that data contains a `name` column with names that match the data above, we can add it in with our `merge` function. As long as all the tables are Tidy, they can be combined across any common columns.
+If we get more data about our patients, for example race, socioeconomic status, diet, and so on, as long as that data contains a `name` column with names that match the data above, we can add it in with our `merge` function. As long as all the tables are Tidy, they can be combined across any common columns. This is the magic of interoperable data.
 
 Although Tidying increases the size of the data, the interoperability, ability to reason, and even execution speed (because of [vectorized/columnar data operations](https://plainenglish.io/blog/pandas-how-you-can-speed-up-50x-using-vectorized-operations)) will greatly outweight the disk space that you're using up. And besides that, the Data Science team will very likely want their data de-normalized for their machine learning algorithms.
 
