@@ -50,3 +50,8 @@ But your adapters have insulated you from the chaos of the outside world, and no
 and
 
 `my_new_tidy_df.assign(tomorrow=my_new_tidy_df.date + pd.DateOffset(1))`
+
+## Wrapping Up
+
+This was intended to be a super high level overview of how you'll organize your code and some of the common ways you'll work when phasing out spreadsheet based workflows. If you have questions, please raise an issue in the repository and I'll be happy to answer/adjust! I hope you feel like you know a bit more how to move forward!
+
