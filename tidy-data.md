@@ -131,7 +131,7 @@ some name, 21, 170, 100, 1
 (Wouldn't this make a nice test case?)
 So how do we make that happen?
 
-We're going to want to melt again! But this time there's some data we want to hang onto that's already pretty Tidy. 
+We're going to want to melt again! But this time there's some data (age and height) we want to hang onto that's already pretty Tidy. 
 ```python
 weight_df\
     .melt(id_vars=["Age","Height"], ignore_index=False)`
