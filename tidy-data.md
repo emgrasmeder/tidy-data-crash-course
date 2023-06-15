@@ -199,9 +199,10 @@ From here, we could see at a glance that Gil Atkins has a 10% chance of having S
 
 By tidying our data like this, it becomes almost mechanical to incorporate new data.
 
-If we get more data about our patients, for example race, socioeconomic status, diet, and so on, as long as that data contains a `name` column with names that match the data above, we can add it in with our `merge` function. 
-If we got, say, 2 more pieces of data that told us about how (i) altitude above sea level affects the likelihood for someone to contract Crohn's Disease, and we had (ii) each person's Zip Code, we can get `merge` this information into our data set and easily start to do more in depth analysis. But only if the data coming in is Tidy. 
+If we get more data about our patients, for example race, socioeconomic status, diet, and so on, as long as that data contains a `name` column with names that match the data above, we can add it in with our `merge` function. As long as all the tables are Tidy, they can be combined across any common columns.
 
-Although Tidying increases the size of the data, the interoperability, ability to reason, and even execution speed (because of vectorized/columnar data operations*) will greatly outweight the disk space that you're using up. And besides that, the Data Science team will very likely want their data de-normalized for their machine learning algorithms.
+Although Tidying increases the size of the data, the interoperability, ability to reason, and even execution speed (because of [vectorized/columnar data operations](https://plainenglish.io/blog/pandas-how-you-can-speed-up-50x-using-vectorized-operations)) will greatly outweight the disk space that you're using up. And besides that, the Data Science team will very likely want their data de-normalized for their machine learning algorithms.
 
-*One of the nice things about the tidy format is that I can utilize vectorized operations in the Pandas library and [speed up execution time dramatically](https://plainenglish.io/blog/pandas-how-you-can-speed-up-50x-using-vectorized-operations), when compared to using iteration.
+Now that you have a high level understanding of Tidying your data, the last thing you need to know is how to organize your code. Let's talk about that very quickly:
+
+[< Jupyter Notebooks](https://github.com/emgrasmeder/tidy-data-crash-course/blob/main/jupyter-notebook.md) | [Organizing your code >](https://github.com/emgrasmeder/tidy-data-crash-course/blob/main/ports-and-adapters.md)
