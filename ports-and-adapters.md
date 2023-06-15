@@ -55,3 +55,5 @@ and
 
 This was intended to be a super high level overview of how you'll organize your code and some of the common ways you'll work when phasing out spreadsheet based workflows. If you have questions, please raise an issue in the repository and I'll be happy to answer/adjust! I hope you feel like you know a bit more how to move forward!
 
+[< Tidy Data](https://github.com/emgrasmeder/tidy-data-crash-course/blob/main/tidy-data.md) |
+
