@@ -34,7 +34,7 @@ and
 ### Adapter Code
 Adapter code doesn't rely on external systems, but the code doesn't conform to our internally ubiquitious language yet. The data doesn't feel like our well domain modeled code yet. The point of the adapter layer is to make the code tidy, to make the column names conform to our internal code conventions, to coerce data types into what we expect. Adapter layer code looks like:
 
-`tidy_df = some_df.melt().rename(columns={"old column name": "new column name"})`
+`tidy_df = some_df.melt().rename(columns={"Old COLNAME": "new_column_name"})`
 
 and
 
