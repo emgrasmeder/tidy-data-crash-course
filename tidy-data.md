@@ -82,7 +82,7 @@ Melt is exactly the method you want here. It's usually a good first place to loo
 Then, with a little more playing wround, I've come up with this: 
 
 ```python 
-tidy_stomach_problems_df = stomach_problems\
+tidy_stomach_problems_df = pd.read_csv('common-stomach-problems-population-proportion.tsv', sep='\t', index_col=0)\
     .melt(ignore_index=False)\
     .reset_index()\
     .rename(columns={"index":"stomach_ailment", "variable":"age_range", "value": "population_proportion"})\
