@@ -1,7 +1,7 @@
 # A Tidy Data Crash Course
-So you're a pretty decent software dev, but for some reason you have to start working with data for the first time. Most likely, spreadsheets worked fine for your team/org while you proved the business hypothesis, and now you need to build something more robust while under pressure to keep running business as usual. 
+So you're a pretty decent software dev, and you've been tasked with phasing out your organization's Spreadsheet based workflow. Most likely, those spreadsheets worked fine while getting things off the ground, and now you need to build something more robust while under pressure to keep running business as usual. 
 
-Already know how to build an application inspired by the principles of the [12 Factor App](https://12factor.net/) and the [Ports and Adapters](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)) pattern, you just have to replace your existing workflow with that new app - you know it'll be a faster, more robust, more extensible, automated, tested data pipeline. But you need to get in the mindset and familiarize yourself with how to work in this context.
+You just have to replace your existing workflow with that new app - you know it'll be a faster, more robust, more extensible, automated, tested data pipeline. But you need to get in the mindset and familiarize yourself with how to work in this context. This little breeze through will introduce you to the tools and help you build a little but of muscle memory for how you'll ditch your spreadsheets and get started with a robust Python solution.
 
 ## Getting Started
 
