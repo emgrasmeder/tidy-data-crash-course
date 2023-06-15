@@ -38,7 +38,8 @@ Adapter code doesn't rely on external systems, but the code doesn't conform to o
 
 and
 
-`pd.to_dateimte(tidy_df)`
+`pd.to_datetime(tidy_df)`
+
 ### Core Code
 Core code is code that can make a lot of assumptions about the meaning of the code. Perhaps you can assume that any column name with the `_time` suffix will be a unix timestamp, or with a `_g` suffix will be a float with 2 decimal places, or that columns dealing with money will be integers. This isn't an assumption you can make when you're dealing with external APIs, producers upstream, other teams, etc. But your adapters have insulated you from the chaos of the outside world, and now you can think about your data as you do about your business. Your columns are predictable, the data is tidy, and everything is interoperable with everything else. The core is the most important part of your business. You can write tests and refactor rapidly because everything is calm here. Core code often looks like:
 
