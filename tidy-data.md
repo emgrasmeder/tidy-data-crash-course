@@ -140,7 +140,8 @@ weight_df\
     .melt(id_vars=["Age","Height"], ignore_index=False)`
 ```
 We use the melt method again, this time providing Age and Height as "id_vars", and we'll end up with this: 
-![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/1c1b5dc9-28d7-4652-9645-4184ff02e3a8)
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/1e5ded7f-ee86-4ec1-821b-b42e3d1343db)
+
 Just with doing a melt, we're already pretty far along! But we still need to: 
 1. Reset the index column and give that new column the name `name`
 1. Change the column names for `variable` and `value` to `quarter` and `weight_kg`
