@@ -185,9 +185,12 @@ def determine_age_range(age):
     elif 80 <= age <= 100:
         return "80-100"
     
-weight_df = weight_df.assign(age_range=weights_df.filter(items=["Age"], axis=1).apply(lambda x: determine_age_range(x), axis=1))
-weight_df
+enriched_tidy_weights_df = tidy_weights_df.assign(age_range=tidy_weights_df.filter(items=["Age"], axis=1).apply(lambda x: determine_age_range(x), axis=1))
+enriched_tidy_weights_df
 ```
+which looks like: 
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/1474491b-31e0-4cd1-bbb8-903eb58fa495)
+
 
 so now we have a tidy `weights_df` which is also enriched with an `age_range` column. This overlap enables us to merge (think SQL `Join`) with any tidy data containing the same column.
 I.e.
