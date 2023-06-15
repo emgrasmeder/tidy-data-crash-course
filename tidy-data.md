@@ -107,6 +107,8 @@ and look at it by evaluating a cell with
 weight_df
 ```
 as the last line of the cell. 
+![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/0ef0ec55-bf1e-41e5-8a0d-d247b09c6836)
+
 
 
 Aside from this table containing information unrelated to the name of the file (age and height), what's wrong with this table? Well, once again: __When a table is tidy, each column represents a single variable.__ In our table, we have the columns `Weight-Q1`, `Weight-Q2`, `Weight-Q3`, and `Weight-Q4`, which confuse the concept of a variable name and a variable's value. Instead, we should have two columns: weight and quarter. Columns indicating Q1, Q2, Q3, and Q4 by their names are storing Values where they should be just Names. 
