@@ -44,7 +44,9 @@ You can get rid of that `Unnamed: 0` column by adding the `index_col=0` argument
 
 But it still won't be Tidy.
 
-The fact that the data loaded with an `Unnamed` column is actually a hint. What would a good name be? Each column should be for a single variable, maybe this variable would be called `stomach_problem`. Then, the values of Stomach Ulcers, Lactose Intolerance, etc actually make sense as variable-values pairs. But what about the other columns? Let's look at the next column to the right: `Age 18-25`. If the column name is `Age 18-25`, what does the first value of `0.23` mean? We have to look all the way to the filename of the data set to learn that 0.23 is the __proportion of the population__ with this disorder. In fact, it shouldn't be so hidden!
+The fact that the data loaded with an `Unnamed` column is actually a hint. What would a good name be? Each column should be for a single variable, maybe this variable would be called `stomach_problem`. Then, the values of Stomach Ulcers, Lactose Intolerance, etc actually make sense as variable-values pairs. 
+
+But what about the other columns? Let's look at the next column to the right: `Age 18-25`. If the column name is `Age 18-25`, what does the first value of `0.23` mean? We have to look all the way to the filename of the data set to learn that 0.23 is the __proportion of the population__ with this disorder. In fact, it shouldn't be so hidden!
 
 The fact that you can't discern what a value in the table means just by looking at the column header is another dead giveaway that your data isn't tidy. Take a step back and look at the table. What information, in general, is stored in the table. Try to think about __a single row containing a single observation__. What would the "observation" be?
 
