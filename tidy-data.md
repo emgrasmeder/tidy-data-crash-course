@@ -110,7 +110,12 @@ as the last line of the cell.
 
 Aside from this table containing information unrelated to the name of the file (age and height), what's wrong with this table? Well, once again: __When a table is tidy, each column represents a single variable.__ In our table, we have the columns `Weight-Q1`, `Weight-Q2`, `Weight-Q3`, and `Weight-Q4`, which confuse the concept of a variable name and a variable's value. Instead, we should have two columns: weight and quarter. Columns indicating Q1, Q2, Q3, and Q4 by their names are storing Values where they should be just Names. 
 Our target dataframe will have the following column names:
-Name, Age, Height, Weight, Quarter. 
+- Name
+- Age
+- Height
+- Weight
+- Quarter
+  
 Or to put it more visually:
 Our current table looks like: 
 ```
