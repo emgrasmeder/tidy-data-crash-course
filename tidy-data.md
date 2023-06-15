@@ -37,7 +37,8 @@ stomach_problems
 executing a cell with just a variable like `stomach_problems` at the end will result in the dataframe being displayed inline on the notebook.
 
 ### Exploring and Manipulating 
-The **DataFrame** is your basic unit of work in the Python world when you're working with data.
+The **DataFrame** is your basic unit of work in the Python world when you're working with data. If the data frame is entirely new to you, maybe watch [this baby video I made](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/4040df35-ea78-4f6a-a0ee-4473caa0ef01) to see the most common, basic way that people usually interact with dataframes. What comes next is a bit more advanced, but I'm confident you can learn the basic syntax of Pandas while learning the high level data tidying skills for your own data in the days to come.
+
 You may already notice some weirdness in the dataframe, we can edit the cell to try to clean it up already: 
 ![image](https://github.com/emgrasmeder/tidy-data-crash-course/assets/8107614/72c9bf1f-c897-4a14-9789-b6e0cb57dc90)
 You can get rid of that `Unnamed: 0` column by adding the `index_col=0` argument to the `read_csv` method. Then reevaluate the cells that (i) store the df and (ii) display it, and it'll re-render the dataframe to look nicer. 
